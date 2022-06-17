@@ -1,8 +1,9 @@
 {
   "name": "blog-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "blog app for tatvasoft interview",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node ./server.ts"
   },
