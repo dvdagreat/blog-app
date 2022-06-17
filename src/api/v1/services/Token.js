@@ -1,8 +1,25 @@
-import jwt from "jwt";
+import jwt from "jsonwebtoken";
 
 class TokenLibrary {
-  static async generateToken(data) {}
-  static async verifyToken(data) {}
+  async generateToken(data, secret) {
+    try {
+      return await jwt.sign(data, secret);
+    } catch (err) {
+      return false;
+    }
+  }
+
+  async verifyToken(token, secret) {
+    try {
+      return await jwt.verify(token, secret);
+    } catch (err) {
+      return false;
+    }
+  }
+
+  async decodeToken(token) {
+    return jwt.decode(token, { complete: true });
+  }
 }
 
 export default new TokenLibrary();

@@ -1,9 +1,9 @@
-import Hashing from "./Hash";
-import PostServices from "./Posts";
-import Response from "./Response";
-import Token from "./Token";
-import UserServices from "./Users";
-import Validation from "./Validation";
+import Hashing from "./Hash.js";
+import PostServices from "./Posts.js";
+import Response from "./Response.js";
+import Token from "./Token.js";
+import UserServices from "./Users.js";
+import Validation from "./Validation.js";
 
 export default {
   posts: PostServices,

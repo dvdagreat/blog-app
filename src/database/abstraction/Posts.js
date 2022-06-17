@@ -3,13 +3,23 @@ class PostsDatabaseWrapper {
     this.model = model;
   }
 
+  async createPost(post) {
+    try {
+      const postObj = new this.model(post);
+      const data = await postObj.save();
+      return { data };
+    } catch (error) {
+      return { error };
+    }
+  }
+
   async getPosts(filters, limit = 30, offset = 0) {
     try {
-      await this.model
-        .find({ ...filters }, offset)
+      const data = await this.model
+        .find({ ...filters })
         .skip(offset)
         .limit(limit);
-      return true;
+      return { data };
     } catch (err) {
       return false;
     }
@@ -26,19 +36,19 @@ class PostsDatabaseWrapper {
 
   async updatePost(postId, post) {
     try {
-      const post = await this.model.findByIdAndUpdate(postId, post);
-      return post;
+      const data = await this.model.findByIdAndUpdate(postId, post, { new: true });
+      return { data };
     } catch (err) {
-      return false;
+      return { error };
     }
   }
 
   async checkPostAuthor(postId, authorId) {
     try {
-      await this.model.findOne({ id: postId, author: authorId });
-      return true;
-    } catch (err) {
-      return false;
+      const data = await this.model.findOne({ id: postId, author: authorId });
+      return data ? true : false;
+    } catch (error) {
+      return { error };
     }
   }
 }

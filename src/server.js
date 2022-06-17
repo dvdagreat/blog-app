@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 
-import getApp from "./app";
-import dependencies from "./dependencies";
+import getApp from "./app.js";
+import dependencies from "./dependency.js";
 
 dotenv.config();
 

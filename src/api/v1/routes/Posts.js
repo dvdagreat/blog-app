@@ -1,6 +1,7 @@
 import { Router } from "express";
 
-import PostController from "../controllers/Posts";
+import fetchJWTUserData from "../../../middleware/fetchJwtUserInfo.js";
+import PostController from "../controllers/Posts.js";
 
 const PostRouter = (dependencies) => {
   const router = Router();

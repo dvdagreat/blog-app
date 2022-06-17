@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import UserController from "../controllers/Users";
+import UserController from "../controllers/Users.js";
 
 const UserRouter = (dependencies) => {
   const router = Router();
@@ -9,7 +9,7 @@ const UserRouter = (dependencies) => {
     UserController.login(req, res, dependencies);
   });
 
-  router.post("/register", (res, res) => {
+  router.post("/register", (req, res) => {
     UserController.register(req, res, dependencies);
   });
 

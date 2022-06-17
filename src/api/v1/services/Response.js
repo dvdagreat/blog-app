@@ -1,20 +1,20 @@
 class Response {
-  static fail(data) {
+  fail(data) {
     return {
       status: "failed",
       data,
     };
   }
 
-  static success(data) {
+  success(data) {
     return {
       status: "success",
       data,
     };
   }
 
-  static send(res, status, json) {
-    return res.send(status).json(json);
+  send(res, status, json) {
+    return res.status(status).json(json);
   }
 }
 

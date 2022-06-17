@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const PostSchema = mongoose.Schema(
+const PostSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -11,7 +11,6 @@ const PostSchema = mongoose.Schema(
     },
     published_date: {
       type: String,
-      required: true,
     },
     status: {
       type: String,
