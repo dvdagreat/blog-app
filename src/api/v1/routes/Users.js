@@ -1,7 +1,17 @@
 import { Router } from "express";
 
-const UserRouter = () => {
+import UserController from "../controllers/Users";
+
+const UserRouter = (dependencies) => {
   const router = Router();
+
+  router.post("/login", (req, res) => {
+    UserController.login(req, res, dependencies);
+  });
+
+  router.post("/register", (res, res) => {
+    UserController.register(req, res, dependencies);
+  });
 
   return router;
 };
